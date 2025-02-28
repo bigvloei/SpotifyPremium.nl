@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toegang geweigerd | Spotify Premium Upgrade</title>
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: #000000;
+            padding: 20px 0;
+            border-bottom: 1px solid #333;
+        }
+        .logo {
+            max-width: 150px;
+        }
+        .error-container {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        .error-code {
+            font-size: 8rem;
+            font-weight: bold;
+            color: #1DB954; /* Spotify groen */
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px rgba(29, 185, 84, 0.5);
+        }
+        .error-message {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        .error-description {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+        .home-button {
+            background-color: #1DB954;
+            color: #ffffff;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+        .home-button:hover {
+            background-color: #1ed760;
+            transform: scale(1.05);
+        }
+        footer {
+            background-color: #000000;
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        .language-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .language-switch a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 10px;
+            opacity: 0.7;
+        }
+        .language-switch a:hover {
+            opacity: 1;
+        }
+    </style>
+    <script>
+        // Eenvoudige taaldetectie op basis van browser taal
+        document.addEventListener('DOMContentLoaded', function() {
+            var userLang = navigator.language || navigator.userLanguage;
+            userLang = userLang.substring(0, 2).toLowerCase();
+            
+            var errorTitle = document.getElementById('errorTitle');
+            var errorMessage = document.getElementById('errorMessage');
+            var errorDescription = document.getElementById('errorDescription');
+            var homeButton = document.getElementById('homeButton');
+            
+            if(userLang === 'nl') {
+                // Nederlandse teksten
+                document.documentElement.lang = 'nl';
+                document.title = 'Toegang geweigerd | Spotify Premium Upgrade';
+                errorMessage.innerText = 'Toegang geweigerd';
+                errorDescription.innerText = 'Je hebt geen toegang tot deze pagina. Als je denkt dat dit een fout is, neem dan contact op met onze klantenservice.';
+                homeButton.innerText = 'Terug naar home';
+            } else {
+                // Engelse teksten (standaard)
+                document.documentElement.lang = 'en';
+                document.title = 'Access Denied | Spotify Premium Upgrade';
+                errorMessage.innerText = 'Access Denied';
+                errorDescription.innerText = 'You do not have permission to access this page. If you believe this is an error, please contact our customer service.';
+                homeButton.innerText = 'Back to home';
+            }
+        });
+        
+        // Functie om handmatig van taal te wisselen
+        function switchLanguage(lang) {
+            var errorTitle = document.getElementById('errorTitle');
+            var errorMessage = document.getElementById('errorMessage');
+            var errorDescription = document.getElementById('errorDescription');
+            var homeButton = document.getElementById('homeButton');
+            
+            if(lang === 'nl') {
+                document.documentElement.lang = 'nl';
+                document.title = 'Toegang geweigerd | Spotify Premium Upgrade';
+                errorMessage.innerText = 'Toegang geweigerd';
+                errorDescription.innerText = 'Je hebt geen toegang tot deze pagina. Als je denkt dat dit een fout is, neem dan contact op met onze klantenservice.';
+                homeButton.innerText = 'Terug naar home';
+            } else {
+                document.documentElement.lang = 'en';
+                document.title = 'Access Denied | Spotify Premium Upgrade';
+                errorMessage.innerText = 'Access Denied';
+                errorDescription.innerText = 'You do not have permission to access this page. If you believe this is an error, please contact our customer service.';
+                homeButton.innerText = 'Back to home';
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="/">
+                <img src="/assets/images/logo.png" alt="Spotify Premium Upgrade" class="logo">
+            </a>
+            <div class="language-switch">
+                <a href="#" onclick="switchLanguage('nl'); return false;">NL</a>
+                <a href="#" onclick="switchLanguage('en'); return false;">EN</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="error-container">
+        <div class="error-code">403</div>
+        <h1 class="error-message" id="errorMessage">Toegang geweigerd</h1>
+        <p class="error-description" id="errorDescription">
+            Je hebt geen toegang tot deze pagina. Als je denkt dat dit een fout is, neem dan contact op met onze klantenservice.
+        </p>
+        <a href="/" class="home-button" id="homeButton">Terug naar home</a>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Spotify Premium Upgrade. Alle rechten voorbehouden.</p>
+        </div>
+    </footer>
+</body>
+</html>
